@@ -37,13 +37,13 @@ from app.prometheus.router import router as router_prometheus
 
 # `instrument_logging=True` sets up logging instrumentation.
 # if you do not want to send logs or are using `loguru`, pass `instrument_logging=False`
-H = highlight_io.H(
-	settings.CLIENT_ID,
-	instrument_logging=True,
-	service_name="my-app",
-	service_version="git-sha",
-	environment="production",
-)
+# H = highlight_io.H(
+# 	settings.CLIENT_ID,
+# 	instrument_logging=True,
+# 	service_name="my-app",
+# 	service_version="git-sha",
+# 	environment="production",
+# )
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -85,7 +85,7 @@ admin.add_view(UserAdmin)
 admin.add_view(BookingAdmin)
 admin.add_view(HotelAdmin)
 admin.add_view(RoomAdmin)
-app.add_middleware(FastAPIMiddleware)
+#app.add_middleware(FastAPIMiddleware)
 
 app.mount('/static', StaticFiles(directory='app/static'),'static')
 
