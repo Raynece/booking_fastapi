@@ -134,36 +134,5 @@ docker-compose down
 pytest
 ```
 
-### **2. Запуск FastAPI без Docker**
-
-Если вы хотите запустить проект без использования Docker, следуйте этим шагам:
-
-1. Убедитесь, что у вас установлены все необходимые зависимости. Для этого создайте и активируйте виртуальное окружение:
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # Для Windows используйте venv\Scripts\activate
-   ```
-
-2. Установите зависимости из `requirements.txt`:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-3. Создайте файл `.env` в корне проекта и настройте переменные окружения. Пример содержимого файла `.env`:
-   ```
-   DATABASE_URL=postgresql+asyncpg://postgres:password@localhost:5432/your_database
-   REDIS_URL=redis://localhost:6379/0
-   SECRET_KEY=your-secret-key
-   ```
-
-4. Запустите миграции базы данных с помощью Alembic:
-   ```bash
-   alembic upgrade head
-   ```
-
-5. Запустите сервер FastAPI с использованием `uvicorn`:
-   ```bash
-   uvicorn app.main:app --reload
-   ```
 
 Теперь проект будет доступен по адресу `http://127.0.0.1:8000`.
